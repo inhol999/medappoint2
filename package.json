@@ -2,19 +2,15 @@
   "name": "medappoint",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "db:migrate": "node prisma/migrate.js",
-    "db:seed": "node prisma/seed.js",
-    "postinstall": "prisma generate",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+"scripts": {
+  "dev": "next dev --webpack",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "db:migrate": "node prisma/migrate.js",
+  "db:seed": "node prisma/seed.js",
+  "postinstall": "prisma generate"
+},
   "dependencies": {
     "@prisma/client": "^5.14.0",
     "bcryptjs": "^2.4.3",

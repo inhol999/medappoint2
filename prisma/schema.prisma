@@ -1,0 +1,175 @@
+// This is your Prisma schema file
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId    Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  role      String   @default("PATIENT")
+  status    String   @default("ACTIVE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  admin   Admin?
+  doctor  Doctor?
+  patient Patient?
+
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+
+  @@map("users")
+}
+
+model Admin {
+  adminId Int    @id @default(autoincrement())
+  userId  Int    @unique
+  name    String
+  email   String @unique
+  clinicId Int?   @unique
+
+  user User @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  clinic Clinic? @relation(fields: [clinicId], references: [clinicId])
+
+  @@map("admins")
+}
+
+model Doctor {
+  doctorId         Int     @id @default(autoincrement())
+  userId           Int     @unique
+  fullName         String
+  specialization   String
+  licenceNumber    String  @unique
+  phone            String
+  clinicId         Int?
+  availabilityStatus String @default("AVAILABLE")
+  profileImage     String?
+
+  user    User    @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  clinic  Clinic? @relation(fields: [clinicId], references: [clinicId])
+
+  schedules    Schedule[]
+  appointments Appointment[]
+
+  @@map("doctors")
+}
+
+model Patient {
+  patientId   Int      @id @default(autoincrement())
+  userId      Int      @unique
+  fullName    String
+  email       String   @unique
+  phone       String
+  address     String?
+  dateOfBirth DateTime?
+
+  user         User          @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  appointments Appointment[]
+
+  @@map("patients")
+}
+
+model Clinic {
+  clinicId           Int    @id @default(autoincrement())
+  clinicName         String
+  contactNumber      String
+  location           String
+  email              String? @unique
+  description        String?
+  consultationFee    Float  @default(500)
+  isActive           Boolean @default(true)
+  createdAt          DateTime @default(now())
+
+  doctors Doctor[]
+  admins Admin[]
+
+  @@map("clinics")
+}
+
+model Schedule {
+  scheduleId       Int      @id @default(autoincrement())
+  doctorId         Int
+  dayOfWeek        String
+  startTime        String
+  endTime          String
+  availabilitySlots Int     @default(10)
+  isActive         Boolean  @default(true)
+
+  doctor       Doctor        @relation(fields: [doctorId], references: [doctorId], onDelete: Cascade)
+  appointments Appointment[]
+
+  @@map("schedules")
+}
+
+model Appointment {
+  appointmentId   Int               @id @default(autoincrement())
+  doctorId        Int
+  patientId       Int
+  scheduleId      Int?
+  appointmentDate DateTime
+  appointmentTime String
+  status          String @default("PENDING")
+  notes           String?
+  type            String        @default("GENERAL")
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  doctor      Doctor               @relation(fields: [doctorId], references: [doctorId])
+  patient     Patient              @relation(fields: [patientId], references: [patientId])
+  schedule    Schedule?            @relation(fields: [scheduleId], references: [scheduleId])
+  payment     Payment?
+  assessment  PreAssessment?
+
+  @@map("appointments")
+}
+
+model Payment {
+  paymentId     Int           @id @default(autoincrement())
+  appointmentId Int           @unique
+  amount        Float
+  paymentMethod String
+  paymentStatus String @default("PENDING")
+  receipt       String?
+  createdAt     DateTime      @default(now())
+
+  appointment Appointment @relation(fields: [appointmentId], references: [appointmentId], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+model PreAssessment {
+  assessmentId  Int      @id @default(autoincrement())
+  appointmentId Int      @unique
+  amount        Float?
+  moduleName    String?
+  paymentMethod String?
+  paymentStatus String?
+  date          DateTime @default(now())
+  questions     String?
+  answers       String?
+
+  appointment Appointment @relation(fields: [appointmentId], references: [appointmentId], onDelete: Cascade)
+
+  @@map("pre_assessments")
+}
+
+model Message {
+  messageId  Int      @id @default(autoincrement())
+  senderId   Int
+  receiverId Int
+  content    String
+  isRead     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  sender   User @relation("SentMessages", fields: [senderId], references: [userId], onDelete: Cascade)
+  receiver User @relation("ReceivedMessages", fields: [receiverId], references: [userId], onDelete: Cascade)
+
+  @@map("messages")
+}

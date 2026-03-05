@@ -1,0 +1,128 @@
+[00:00:02.186] Server  LOG     ✓ Ready in 1829ms
+[00:00:07.161] Server  LOG     ○ Compiling / ...
+[00:00:07.980] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:28.816] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:27.754] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:46.792] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:18:44.554] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:57.422] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:58.543] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:42.482] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:43.084] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:28:34.572] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:11.547] Server  ERROR   ⨯ ./src/app/login/page.tsx
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+[00:31:12.395] Browser ERROR   ./src/app/login/page.tsx
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+[00:31:12.395] Browser ERROR   ./src/app/login/page.tsx
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+[00:31:19.115] Browser ERROR   ./src/app/login/page.tsx
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+[00:31:19.302] Server  ERROR   ⨯ ./src/app/login/page.tsx
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+[00:31:19.574] Browser ERROR   ./src/app/login/page.tsx
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/login/page.tsx
+[00:31:19.872] Browser ERROR   uncaughtError: ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+
+Caused by:
+    Syntax Error
+[00:31:19.985] Browser ERROR   ./src/app/login/page.tsx
+Error:   × Expected '</', got '<eof>'
+    ╭─[C:\Users\DIC\Desktop\medapoint2\src\app\login\page.tsx:93:88]
+ 91 │               type="submit"
+ 92 │               className="btn btn-primary"
+ 93 │               style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+    ╰────
+
+Caused by:
+    Syntax Error
+[00:31:20.701] Server  LOG     ○ Compiling /_error ...
+[00:31:58.240] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:31:58.981] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:31:59.937] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:00.441] Browser WARN    Image with src "/clinic.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:33:37.404] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:42.821] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:34:20.607] Browser WARN    Image with src "/clinic.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:39:23.025] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:32.682] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:47.380] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:40:03.574] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:40:30.342] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:42:18.488] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:42:35.260] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:00.929] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:47:02.442] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

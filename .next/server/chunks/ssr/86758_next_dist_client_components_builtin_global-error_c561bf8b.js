@@ -1,0 +1,3 @@
+module.exports=[22236,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(18897);a.n(d("[project]/Desktop/medapoint2/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},63774,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(18897);a.n(d("[project]/Desktop/medapoint2/node_modules/next/dist/client/components/builtin/global-error.js"))},37163,a=>{"use strict";a.i(22236);var b=a.i(63774);a.n(b)}];
+
+//# sourceMappingURL=86758_next_dist_client_components_builtin_global-error_c561bf8b.js.map

@@ -1,0 +1,13 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_not-found/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__d3506a88._.js")
+R.c("server/chunks/ssr/86758_next_dist_b5d5405d._.js")
+R.c("server/chunks/ssr/86758_next_dist_esm_build_templates_app-page_c4b070aa.js")
+R.c("server/chunks/ssr/[root-of-the-server]__3042c962._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__e77be9b4._.js")
+R.c("server/chunks/ssr/86758_next_dist_d73464dc._.js")
+R.c("server/chunks/ssr/Desktop_medapoint2_src_app_9c4f0079._.js")
+R.c("server/chunks/ssr/86758_next_dist_client_components_6204e709._.js")
+R.c("server/chunks/ssr/86758_next_dist_client_components_builtin_forbidden_e68a17fa.js")
+R.c("server/chunks/ssr/Desktop_medapoint2__next-internal_server_app__not-found_page_actions_23662861.js")
+R.m(39312)
+module.exports=R.m(39312).exports

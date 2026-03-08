@@ -1,59 +1,13 @@
-[00:00:01.900] Server  LOG     ✓ Ready in 1586ms
-[00:00:05.317] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:07.034] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:07.131] Server  ERROR   ⨯ PrismaClientInitializationError: 
+[00:00:01.954] Server  LOG     ✓ Ready in 1632ms
+[00:00:03.768] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:06.245] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
+[00:00:06.352] Server  ERROR   ⨯ PrismaClientInitializationError: 
 Invalid `prisma.clinic.findMany()` invocation:
 
 
 Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:07.715] Browser ERROR   unhandledRejection: SyntaxError: Failed to execute 'json' on 'Response': Unexpected end of JSON input
-[00:00:13.920] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:00:19.640] Server  LOG     prisma:error "\nInvalid `prisma.user.findUnique()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:30.862] Server  LOG     prisma:error "\nInvalid `prisma.user.findUnique()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:32.915] Server  LOG     prisma:error "\nInvalid `prisma.user.findUnique()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:34.360] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:34.431] Server  ERROR   ⨯ PrismaClientInitializationError: 
-Invalid `prisma.clinic.findMany()` invocation:
-
-
-Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:35.246] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:35.292] Server  ERROR   ⨯ PrismaClientInitializationError: 
-Invalid `prisma.clinic.findMany()` invocation:
-
-
-Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:37.791] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:37.836] Server  ERROR   ⨯ PrismaClientInitializationError: 
-Invalid `prisma.clinic.findMany()` invocation:
-
-
-Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:38.728] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:38.771] Server  ERROR   ⨯ PrismaClientInitializationError: 
-Invalid `prisma.clinic.findMany()` invocation:
-
-
-Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:39.132] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:39.976] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:40.023] Server  ERROR   ⨯ PrismaClientInitializationError: 
-Invalid `prisma.clinic.findMany()` invocation:
-
-
-Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:40.128] Browser ERROR   unhandledRejection: SyntaxError: Failed to execute 'json' on 'Response': Unexpected end of JSON input
-[00:00:40.579] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:00:42.883] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:42.931] Server  ERROR   ⨯ PrismaClientInitializationError: 
-Invalid `prisma.clinic.findMany()` invocation:
-
-
-Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:43.765] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findMany()` invocation:\n\n\nError querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'"
-[00:00:43.808] Server  ERROR   ⨯ PrismaClientInitializationError: 
-Invalid `prisma.clinic.findMany()` invocation:
-
-
-Error querying the database: Server error: `ERROR 42000 (1226): User 'uht2rkbmxnezypth' has exceeded the 'max_user_connections' resource (current value: 5)'
-[00:00:44.721] Browser ERROR   unhandledRejection: SyntaxError: Failed to execute 'json' on 'Response': Unexpected end of JSON input
+[00:00:06.461] Browser ERROR   unhandledRejection: SyntaxError: Failed to execute 'json' on 'Response': Unexpected end of JSON input
+[00:00:07.639] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:28.662] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:30.334] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:32.097] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

@@ -20,6 +20,7 @@ const adminNav: NavItem[] = [
   { href: '/admin/users', icon: '👥', label: 'Users' },
   { href: '/admin/doctors', icon: '🩺', label: 'Doctors' },
   { href: '/admin/appointments', icon: '📅', label: 'Appointments' },
+  { href: '/', icon: '🏠', label: 'Home' },
 ];
 
 const doctorNav: NavItem[] = [
@@ -29,6 +30,7 @@ const doctorNav: NavItem[] = [
   { href: '/doctor/patients', icon: '👤', label: 'My Patients' },
   { href: '/doctor/messages', icon: '💬', label: 'Messages' },
   { href: '/doctor/profile', icon: '⚙️', label: 'Profile' },
+  { href: '/', icon: '🏠', label: 'Home' },
 ];
 
 const patientNav: NavItem[] = [
@@ -38,6 +40,7 @@ const patientNav: NavItem[] = [
   { href: '/patient/payments', icon: '💳', label: 'Payments' },
   { href: '/patient/messages', icon: '💬', label: 'Messages' },
   { href: '/patient/profile', icon: '⚙️', label: 'Profile' },
+  { href: '/', icon: '🏠', label: 'Home' },
 ];
 
 export function Sidebar({ role }: SidebarProps) {

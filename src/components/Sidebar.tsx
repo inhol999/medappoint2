@@ -15,7 +15,7 @@ interface SidebarProps {
 }
 
 const adminNav: NavItem[] = [
-  { href: '/', icon: '⊞', label: 'Dashboard' },
+  { href: '/dashboard', icon: '⊞', label: 'Dashboard' },
   { href: '/admin/clinics', icon: '🏥', label: 'Clinics' },
   { href: '/admin/users', icon: '👥', label: 'Users' },
   { href: '/admin/doctors', icon: '🩺', label: 'Doctors' },
@@ -23,7 +23,7 @@ const adminNav: NavItem[] = [
 ];
 
 const doctorNav: NavItem[] = [
-  { href: '/', icon: '⊞', label: 'Dashboard' },
+  { href: '/dashboard', icon: '⊞', label: 'Dashboard' },
   { href: '/doctor/appointments', icon: '📅', label: 'Appointments' },
   { href: '/doctor/schedules', icon: '🗓', label: 'My Schedules' },
   { href: '/doctor/patients', icon: '👤', label: 'My Patients' },
@@ -32,7 +32,7 @@ const doctorNav: NavItem[] = [
 ];
 
 const patientNav: NavItem[] = [
-  { href: '/', icon: '⊞', label: 'Dashboard' },
+  { href: '/dashboard', icon: '⊞', label: 'Dashboard' },
   { href: '/patient/find', icon: '🔍', label: 'Find a Clinic' },
   { href: '/patient/appointments', icon: '📅', label: 'Appointments' },
   { href: '/patient/payments', icon: '💳', label: 'Payments' },
@@ -131,7 +131,6 @@ export function Sidebar({ role }: SidebarProps) {
           border-radius: 2px;
         }
         .mobile-overlay {
-          display: none;
           position: fixed;
           inset: 0;
           background: rgba(0,0,0,0.5);
@@ -158,7 +157,6 @@ export function Sidebar({ role }: SidebarProps) {
         @media (max-width: 768px) {
           .sidebar { display: none; }
           .mobile-topbar { display: flex; }
-          .mobile-overlay { display: block; }
           .dash-content { padding-top: 72px !important; }
         }
       `}</style>

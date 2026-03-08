@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Sidebar } from '@/components/Sidebar';
 
@@ -14,7 +13,6 @@ const STEPS = [
 
 export default function HomePage() {
   const { data: session, status } = useSession();
-  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState('');
@@ -23,12 +21,10 @@ export default function HomePage() {
   const [dashboardData, setDashboardData] = useState<any>(null);
 
   // if user is signed in, send them to /dashboard unless explicitly requesting the public home page
-  const searchParams = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
-  useEffect(() => {
-    if (session && !searchParams.get('home')) {
-      router.replace('/dashboard');
-    }
-  }, [session, router, searchParams]);
+
+
+
+
 
   useEffect(() => {
     fetch('/api/clinics')

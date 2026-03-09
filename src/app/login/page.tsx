@@ -57,22 +57,10 @@ export default function LoginPage() {
       `}</style>
 
       <div className="login-wrapper">
-        {/* Left side — image */}
-        {/*
-         <div className="login-image-panel">
-          <Image
-            src="/clinic.jpg"
-            alt="Clinic"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-        </div> 
-        */}
-
         {/* Right side — login form */}
         <div className="auth-page login-form-panel">
           <div className="auth-card">
+            <Link href="/" style={{ fontSize: '0.8rem', color: '#6b7280', textDecoration: 'none', display: 'inline-block', marginBottom: '1.25rem' }}>← Back to home</Link>
             <div className="auth-logo">Med<span>Appoint</span></div>
             <h1 className="auth-title">Welcome back</h1>
             <p className="auth-sub">Sign in to your account to continue</p>

@@ -86,14 +86,16 @@ export function Sidebar({ role }: SidebarProps) {
     <>
       <style>{`
         .sidebar {
-          width: 260px;
-          background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+          width: 230px;
+          background: linear-gradient(135deg, #1e293b 0%, #000000 100%);
           color: white;
           padding: 1.5rem 0;
           display: flex;
           flex-direction: column;
           box-shadow: 2px 0 10px rgba(0,0,0,0.1);
           min-height: 100vh;
+
+   
         }
         .mobile-topbar {
           display: none;

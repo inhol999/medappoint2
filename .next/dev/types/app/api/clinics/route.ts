@@ -1,4 +1,4 @@
-// File: C:\Users\DIC\Desktop\medapoint2\src\app\api\clinics\route.ts
+// File: C:\Users\DIC\Desktop\medappoint2\src\app\api\clinics\route.ts
 import * as entry from '../../../../../../src/app/api/clinics/route.js'
 import type { NextRequest } from 'next/server.js'
 

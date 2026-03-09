@@ -1,4 +1,4 @@
-# MedAppoint — Full-Stack Healthcare Platform
+# MedAppoint2 — Full-Stack Healthcare Platform
 
 A complete web application for clinic management, doctor scheduling, and patient appointment booking built with **Next.js 14**, **MySQL (Prisma ORM)**, and **NextAuth.js**.
 
@@ -20,7 +20,7 @@ A complete web application for clinic management, doctor scheduling, and patient
 ## 📁 Project Structure
 
 ```
-medapoint/
+medappoint/
 ├── prisma/
 │   ├── schema.prisma          # Database schema (all models)
 │   ├── seed.js                # Seed initial data
@@ -106,7 +106,7 @@ medapoint/
 
 ```bash
 git clone <your-repo>
-cd medapoint
+cd medappoint
 npm install
 ```
 
@@ -115,7 +115,7 @@ npm install
 Create the MySQL database:
 
 ```sql
-CREATE DATABASE medapoint CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE medappoint2 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 ### 4. Environment Variables
@@ -128,7 +128,7 @@ cp .env.example .env
 
 Edit `.env`:
 ```
-DATABASE_URL="mysql://root:yourpassword@localhost:3306/medapoint"
+DATABASE_URL="mysql://root:yourpassword@localhost:3306/medappoint2"
 NEXTAUTH_URL="http://localhost:3000"
 NEXTAUTH_SECRET="generate-a-random-secret-here"
 ```
@@ -160,13 +160,9 @@ Visit: **http://localhost:3000**
 
 ---
 
-## 👤 Default Login Credentials
+## 👤 Getting Started
 
-| Role | Username | Password |
-|------|----------|----------|
-| Admin | `admin` | `admin123` |
-| Doctor | `dr.santos` | `doctor123` |
-| Patient | `juan.dela.cruz` | `patient123` |
+To get started, create an account using the registration page or contact your administrator for access.
 
 ---
 

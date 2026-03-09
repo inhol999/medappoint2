@@ -28,10 +28,15 @@ export default function HomePage() {
     setShowHome(params.get('home') === '1');
   }, []);
 
+  // FIXED: safe fetch that handles errors and non-array responses
   useEffect(() => {
-    fetch('/api/clinics')
+    fetch('/api/clinics', { cache: 'no-store' })
       .then(r => r.json())
-      .then(setClinics);
+      .then(data => {
+        if (Array.isArray(data)) setClinics(data);
+        else setClinics([]);
+      })
+      .catch(() => setClinics([]));
   }, []);
 
   useEffect(() => {
@@ -279,8 +284,6 @@ export default function HomePage() {
         }
       `}</style>
 
-
-
       {/* NAV */}
       <nav className={scrolled ? 'scrolled' : ''}>
         <Link href="/" className="logo">Med<span>Appoint</span></Link>
@@ -346,8 +349,7 @@ export default function HomePage() {
             </Link>
           )) : (
             <div className="no-results">
-              No results for &quot;{search}&quot;.{' '}
-              <span style={{ color: 'var(--blue)', cursor: 'pointer' }} onClick={() => setSearch('')}>Clear</span>
+              No clinics available yet.
             </div>
           )}
         </div>

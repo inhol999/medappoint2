@@ -78,7 +78,7 @@ export default function DashboardPage() {
           <>
             <div style={{ marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#1e293b', marginBottom: '0.5rem' }}>Clinic Overview</h2>
-              <p style={{ color: '#64748b', fontSize: '0.95rem' }}>Monitor your clinic's performance and manage operations</p>
+<p style={{ color: '#64748b', fontSize: '0.95rem' }}>Monitor your clinic&apos;s performance and manage operations</p>
             </div>
             <div className="stats-grid">
               <div className="stat-card">
@@ -99,7 +99,7 @@ export default function DashboardPage() {
               </div>
               <div className="stat-card">
                 <div className="stat-value">{dashboardData.todayAppointments}</div>
-                <div className="stat-label">Today's Appointments</div>
+                <div className="stat-label">Today&apos;s Appointments</div>
               </div>
               <div className="stat-card">
                 <div className="stat-value">₱{dashboardData.totalRevenue}</div>
@@ -113,12 +113,12 @@ export default function DashboardPage() {
           <>
             <div style={{ marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#1e293b', marginBottom: '0.5rem' }}>Your Practice</h2>
-              <p style={{ color: '#64748b', fontSize: '0.95rem' }}>Track your appointments and patient care</p>
+<p style={{ color: '#64748b', fontSize: '0.95rem' }}>Track your appointments and patient care</p>
             </div>
             <div className="stats-grid">
               <div className="stat-card">
                 <div className="stat-value">{dashboardData.todayAppointments}</div>
-                <div className="stat-label">Today's Appointments</div>
+                <div className="stat-label">Today&apos;s Appointments</div>
               </div>
               <div className="stat-card">
                 <div className="stat-value">{dashboardData.totalAppointments}</div>

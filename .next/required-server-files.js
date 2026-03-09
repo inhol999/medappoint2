@@ -100,7 +100,7 @@ self.__SERVER_FILES_MANIFEST={
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Users\\DIC",
+    "outputFileTracingRoot": "c:\\Users\\DIC",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -296,11 +296,11 @@ self.__SERVER_FILES_MANIFEST={
       "bcryptjs"
     ],
     "turbopack": {
-      "root": "C:\\Users\\DIC"
+      "root": "c:\\Users\\DIC"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\Users\\DIC\\Desktop\\medapoint2",
+  "appDir": "c:\\Users\\DIC\\Desktop\\medapoint2",
   "relativeAppDir": "Desktop\\medapoint2",
   "files": [
     ".next\\routes-manifest.json",

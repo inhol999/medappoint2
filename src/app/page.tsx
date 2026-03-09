@@ -505,7 +505,7 @@ export default function HomePage() {
           <a href="#">Contact</a>
           <a href="#">Help</a>
         </div>
-        <div className="footer-copy">© 2026 MedaPoint</div>
+        <div className="footer-copy">© 2026 MedAppoint</div>
       </footer>
     </>
   );

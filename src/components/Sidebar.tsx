@@ -28,7 +28,6 @@ const doctorNav: NavItem[] = [
   { href: '/doctor/appointments', icon: '📅', label: 'Appointments' },
   { href: '/doctor/schedules', icon: '🗓', label: 'My Schedules' },
   { href: '/doctor/patients', icon: '👤', label: 'My Patients' },
-  { href: '/doctor/messages', icon: '💬', label: 'Messages' },
   { href: '/doctor/profile', icon: '⚙️', label: 'Profile' },
   { href: '/?home=1', icon: '🏠', label: 'Home' },
 ];
@@ -87,15 +86,13 @@ export function Sidebar({ role }: SidebarProps) {
       <style>{`
         .sidebar {
           width: 230px;
-          background: linear-gradient(135deg, #1e293b 0%, #000000 100%);
+          background: linear-gradient(135deg, #010d20 0%, #003d92 100%);
           color: white;
           padding: 1.5rem 0;
           display: flex;
           flex-direction: column;
           box-shadow: 2px 0 10px rgba(0,0,0,0.1);
           min-height: 100vh;
-
-   
         }
         .mobile-topbar {
           display: none;

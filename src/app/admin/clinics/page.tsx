@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from 'next/link'; 
 
 export default function AdminClinics() {
   const [clinic, setClinic] = useState<any>(null);

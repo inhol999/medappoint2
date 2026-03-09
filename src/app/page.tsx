@@ -497,7 +497,7 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer>
-        <div className="footer-brand">MedApooint</div>
+        <div className="footer-brand">MedAppoint</div>
         <div className="footer-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>

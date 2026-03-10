@@ -316,7 +316,8 @@ export default function HomePage() {
         ) : (
           <>
             <Link href="/login" onClick={() => setMenuOpen(false)}>Sign in</Link>
-            <Link href="/register" className="nav-join" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>Join free</Link>
+            <Link href="/register" onClick={() => setMenuOpen(false)} style={{ 
+            textAlign: 'center', background: '#111111', color: 'white', padding: '0.6rem 1rem', borderRadius: '6px', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>Join free</Link>
           </>
         )}
       </div>

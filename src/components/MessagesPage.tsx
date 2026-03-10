@@ -28,12 +28,16 @@ export default function MessagesPage() {
 
   useEffect(() => {
     fetchConversations();
-    const interval = setInterval(fetchConversations, 5000);
+    const interval = setInterval(fetchConversations, 2000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (activeUser) fetchMessages(activeUser.userId);
+    if (activeUser) {
+      fetchMessages(activeUser.userId);
+      const interval = setInterval(() => fetchMessages(activeUser.userId), 1500);
+      return () => clearInterval(interval);
+    }
   }, [activeUser]);
 
   useEffect(() => {
@@ -53,22 +57,51 @@ export default function MessagesPage() {
   }
 
   async function fetchAllUsers() {
-    const res = await fetch('/api/users');
+    const res = await fetch('/api/messages/users');
     const data = await res.json();
-    setAllUsers(Array.isArray(data) ? data.filter((u: any) => u.userId !== currentUserId) : []);
+    setAllUsers(Array.isArray(data) ? data : []);
   }
 
   async function sendMessage(e: React.FormEvent) {
     e.preventDefault();
     if (!newMsg.trim() || !activeUser) return;
-    await fetch('/api/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ receiverId: activeUser.userId, content: newMsg }),
-    });
+    
+    const messageContent = newMsg;
     setNewMsg('');
-    fetchMessages(activeUser.userId);
-    fetchConversations();
+    
+    // Optimistically update UI
+    const optimisticMessage = {
+      messageId: Date.now(),
+      senderId: currentUserId,
+      receiverId: activeUser.userId,
+      content: messageContent,
+      isRead: false,
+      createdAt: new Date().toISOString(),
+    };
+    setMessages(prev => [...prev, optimisticMessage]);
+    
+    try {
+      const res = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ receiverId: activeUser.userId, content: messageContent }),
+      });
+      
+      if (res.ok) {
+        // Wait a moment then refetch to sync with server
+        await new Promise(resolve => setTimeout(resolve, 300));
+        await fetchMessages(activeUser.userId);
+        await fetchConversations();
+      } else {
+        // If failed, remove optimistic message and show error
+        setMessages(prev => prev.filter(m => m.messageId !== optimisticMessage.messageId));
+        alert('Failed to send message');
+      }
+    } catch (err) {
+      // If network error, remove optimistic message
+      setMessages(prev => prev.filter(m => m.messageId !== optimisticMessage.messageId));
+      alert('Error sending message');
+    }
   }
 
   const role = (session?.user as any)?.role;

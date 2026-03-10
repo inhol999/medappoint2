@@ -55,28 +55,49 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
 export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const { error, session } = await requireAuth(['PATIENT']);
+  const { error, session } = await requireAuth(['PATIENT', 'ADMIN', 'DOCTOR']);
   if (error) return error;
 
   const appointmentId = parseInt(id);
-  const patientId = (session!.user as any).profileId;
+  const role = (session!.user as any).role;
+  const profileId = (session!.user as any).profileId;
 
-  // Verify the appointment belongs to the patient
+  // Verify the appointment exists
   const appointment = await prisma.appointment.findUnique({
     where: { appointmentId },
+    include: { doctor: true },
   });
 
   if (!appointment) {
     return NextResponse.json({ error: 'Appointment not found' }, { status: 404 });
   }
 
-  if (appointment.patientId !== patientId) {
-    return NextResponse.json({ error: 'You can only delete your own appointments' }, { status: 403 });
-  }
-
-  // Only allow deletion of cancelled appointments
-  if (appointment.status !== 'CANCELLED') {
-    return NextResponse.json({ error: 'Only cancelled appointments can be deleted' }, { status: 400 });
+  // Authorization checks
+  if (role === 'PATIENT') {
+    // Patients can only delete their own cancelled appointments
+    if (appointment.patientId !== profileId) {
+      return NextResponse.json({ error: 'You can only delete your own appointments' }, { status: 403 });
+    }
+    if (appointment.status !== 'CANCELLED') {
+      return NextResponse.json({ error: 'Only cancelled appointments can be deleted' }, { status: 400 });
+    }
+  } else if (role === 'DOCTOR') {
+    // Doctors can only delete completed appointments for their own clinic
+    if (appointment.doctorId !== profileId) {
+      return NextResponse.json({ error: 'You can only delete your own appointments' }, { status: 403 });
+    }
+    if (appointment.status !== 'COMPLETED') {
+      return NextResponse.json({ error: 'Only completed appointments can be deleted' }, { status: 400 });
+    }
+  } else if (role === 'ADMIN') {
+    // Admins can only delete completed appointments in their clinic
+    const clinicId = (session!.user as any).clinicId;
+    if (clinicId && appointment.doctor.clinicId !== clinicId) {
+      return NextResponse.json({ error: 'You can only delete appointments in your clinic' }, { status: 403 });
+    }
+    if (appointment.status !== 'COMPLETED') {
+      return NextResponse.json({ error: 'Only completed appointments can be deleted' }, { status: 400 });
+    }
   }
 
   // Delete the appointment (this will cascade delete related payments, assessments, etc.)

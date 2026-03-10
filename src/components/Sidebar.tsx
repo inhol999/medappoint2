@@ -20,6 +20,7 @@ const adminNav: NavItem[] = [
   { href: '/admin/users', icon: '👥', label: 'Users' },
   { href: '/admin/doctors', icon: '🩺', label: 'Doctors' },
   { href: '/admin/appointments', icon: '📅', label: 'Appointments' },
+  { href: '/admin/messages', icon: '💬', label: 'Messages' },
   { href: '/?home=1', icon: '🏠', label: 'Home' },
 ];
 
@@ -28,6 +29,7 @@ const doctorNav: NavItem[] = [
   { href: '/doctor/appointments', icon: '📅', label: 'Appointments' },
   { href: '/doctor/schedules', icon: '🗓', label: 'My Schedules' },
   { href: '/doctor/patients', icon: '👤', label: 'My Patients' },
+  { href: '/doctor/messages', icon: '💬', label: 'Messages' },
   { href: '/doctor/profile', icon: '⚙️', label: 'Profile' },
   { href: '/?home=1', icon: '🏠', label: 'Home' },
 ];

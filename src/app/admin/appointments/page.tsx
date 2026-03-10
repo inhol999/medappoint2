@@ -5,7 +5,7 @@ import Link from 'next/link';
 function Badge({ status }: { status: string }) {
   const cls: Record<string, string> = {
     PENDING: 'badge-yellow', APPROVED: 'badge-green', CANCELLED: 'badge-red',
-    COMPLETED: 'badge-blue', RESCHEDULED: 'badge-gray',
+    COMPLETED: 'badge-blue', RESCHEDULED: 'badge-gray', DONE: 'badge-blue',
   };
   return <span className={`badge ${cls[status] || 'badge-gray'}`}>{status}</span>;
 }
@@ -13,36 +13,72 @@ function Badge({ status }: { status: string }) {
 export default function AdminAppointments() {
   const [appts, setAppts] = useState<any[]>([]);
   const [filter, setFilter] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => { fetchAppts(); }, []);
 
   async function fetchAppts() {
     const url = filter ? `/api/appointments?status=${filter}` : '/api/appointments';
     const res = await fetch(url);
-    setAppts(await res.json());
+    const data = await res.json();
+    setAppts(Array.isArray(data) ? data : []);
   }
 
   useEffect(() => { fetchAppts(); }, [filter]);
 
   async function updateStatus(id: number, status: string) {
-    await fetch(`/api/appointments/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status }),
-    });
-    fetchAppts();
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/appointments/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      });
+      if (res.ok) {
+        fetchAppts();
+      } else {
+        alert('Failed to update appointment');
+      }
+    } catch (err) {
+      alert('Error updating appointment');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function deleteAppointment(id: number) {
+    if (!confirm('Are you sure you want to delete this appointment?')) {
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/appointments/${id}`, {
+        method: 'DELETE',
+      });
+      if (res.ok) {
+        fetchAppts();
+      } else {
+        const data = await res.json();
+        alert(data.error || 'Failed to delete appointment');
+      }
+    } catch (err) {
+      alert('Error deleting appointment');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <>
       <div className="dash-topbar">
         <h1 className="dash-title">Appointments</h1>
-        <select className="form-select" style={{ width: 'auto' }} value={filter} onChange={e => setFilter(e.target.value)}>
+        <select className="form-select" style={{ width: 'auto' }} value={filter} onChange={e => setFilter(e.target.value)} disabled={loading}>
           <option value="">All Status</option>
           <option value="PENDING">Pending</option>
           <option value="APPROVED">Approved</option>
           <option value="CANCELLED">Cancelled</option>
           <option value="COMPLETED">Completed</option>
+          <option value="DONE">Done</option>
         </select>
       </div>
       <div className="dash-body">
@@ -66,12 +102,28 @@ export default function AdminAppointments() {
                       <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
                         {a.status === 'PENDING' && (
                           <>
-                            <button className="btn btn-sm btn-outline" style={{ color: 'var(--green)' }} onClick={() => updateStatus(a.appointmentId, 'APPROVED')}>Approve</button>
-                            <button className="btn btn-sm btn-danger" onClick={() => updateStatus(a.appointmentId, 'CANCELLED')}>Cancel</button>
+                            <button className="btn btn-sm btn-outline" style={{ color: 'var(--green)' }} onClick={() => updateStatus(a.appointmentId, 'APPROVED')} disabled={loading}>Approve</button>
+                            <button className="btn btn-sm btn-danger" onClick={() => updateStatus(a.appointmentId, 'CANCELLED')} disabled={loading}>Cancel</button>
                           </>
                         )}
                         {a.status === 'APPROVED' && (
-                          <button className="btn btn-sm btn-outline" style={{ color: 'var(--blue)' }} onClick={() => updateStatus(a.appointmentId, 'COMPLETED')}>Complete</button>
+                          <>
+                            <button className="btn btn-sm btn-outline" style={{ color: 'var(--blue)' }} onClick={() => updateStatus(a.appointmentId, 'COMPLETED')} disabled={loading}>Complete</button>
+                            <button className="btn btn-sm btn-danger" onClick={() => updateStatus(a.appointmentId, 'CANCELLED')} disabled={loading}>Cancel</button>
+                          </>
+                        )}
+                        {a.status === 'COMPLETED' && (
+                          <>
+                            <button className="btn btn-sm btn-danger" onClick={() => deleteAppointment(a.appointmentId)} disabled={loading} style={{ background: '#cc3333', color: 'white' }}>Delete</button>
+                          </>
+                        )}
+                        {a.status === 'DONE' && (
+                          <>
+                            <button className="btn btn-sm btn-danger" onClick={() => deleteAppointment(a.appointmentId)} disabled={loading} style={{ background: '#cc3333', color: 'white' }}>Delete</button>
+                          </>
+                        )}
+                        {a.status === 'CANCELLED' && (
+                          <span style={{ color: 'var(--gray2)', fontSize: '0.9rem' }}>No actions available</span>
                         )}
                       </div>
                     </td>

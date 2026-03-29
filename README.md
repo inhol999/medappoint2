@@ -150,7 +150,28 @@ npx prisma migrate dev --name init
 node prisma/seed.js
 ```
 
-### 7. Start the Development Server
+### 7. Google Verification Setup
+
+MedAppoint requires Google account verification for all new registrations to ensure account legitimacy.
+
+#### Google OAuth Setup:
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing one
+3. Enable the Google+ API
+4. Go to "Credentials" → "Create Credentials" → "OAuth 2.0 Client IDs"
+5. Set authorized redirect URI: `http://localhost:3000/api/auth/callback/google`
+6. Add your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to `.env`
+
+#### Gmail Setup for Verification Emails:
+1. Enable 2-factor authentication on your Gmail account
+2. Generate an App Password: [Google App Passwords](https://support.google.com/accounts/answer/185833)
+3. Add to `.env`:
+```
+GMAIL_USER="your-gmail@gmail.com"
+GMAIL_APP_PASSWORD="your-16-character-app-password"
+```
+
+### 8. Start Development Server
 
 ```bash
 npm run dev

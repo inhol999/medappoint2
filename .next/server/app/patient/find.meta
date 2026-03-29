@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/patient/layout,_N_T_/patient/find/layout,_N_T_/patient/find/page,_N_T_/patient/find"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/patient/find/__PAGE__",
+    "/patient/find",
+    "/patient",
+    "/_index",
+    "/_head"
+  ]
+}

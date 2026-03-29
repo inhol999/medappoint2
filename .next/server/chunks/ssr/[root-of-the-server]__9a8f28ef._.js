@@ -1,0 +1,25 @@
+module.exports=[36313,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored.contexts.HooksClientContext},18341,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored.contexts.ServerInsertedHtml},56704,(a,b,c)=>{b.exports=a.x("next/dist/server/app-render/work-async-storage.external.js",()=>require("next/dist/server/app-render/work-async-storage.external.js"))},32319,(a,b,c)=>{b.exports=a.x("next/dist/server/app-render/work-unit-async-storage.external.js",()=>require("next/dist/server/app-render/work-unit-async-storage.external.js"))},20635,(a,b,c)=>{b.exports=a.x("next/dist/server/app-render/action-async-storage.external.js",()=>require("next/dist/server/app-render/action-async-storage.external.js"))},9270,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored.contexts.AppRouterContext},38783,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored["react-ssr"].ReactServerDOMTurbopackClient},93482,a=>{"use strict";var b=a.i(87924),c=a.i(72131),d=a.i(75003),e=a.i(50944),f=a.i(38246);function g(){let a=(0,e.useRouter)(),[g,h]=(0,c.useState)({username:"",password:""}),[i,j]=(0,c.useState)(""),[k,l]=(0,c.useState)(!1),m=async b=>{b.preventDefault(),l(!0),j("");let c=await (0,d.signIn)("credentials",{username:g.username,password:g.password,redirect:!1});c?.error?(j("Invalid username or password"),l(!1)):a.push("/")};return(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)("style",{children:`
+        .login-wrapper {
+          display: flex;
+          min-height: 100vh;
+        }
+        .login-image-panel {
+          display: none;
+          flex: 1;
+          position: relative;
+        }
+        @media (min-width: 768px) {
+          .login-image-panel {
+            display: block;
+          }
+        }
+        .login-form-panel {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      `}),(0,b.jsx)("div",{className:"login-wrapper",children:(0,b.jsx)("div",{className:"auth-page login-form-panel",children:(0,b.jsxs)("div",{className:"auth-card",children:[(0,b.jsx)(f.default,{href:"/",style:{fontSize:"0.8rem",color:"#6b7280",textDecoration:"none",display:"inline-block",marginBottom:"1.25rem"},children:"← Back to home"}),(0,b.jsxs)("div",{className:"auth-logo",children:["Med",(0,b.jsx)("span",{children:"Appoint"})]}),(0,b.jsx)("h1",{className:"auth-title",children:"Welcome back"}),(0,b.jsx)("p",{className:"auth-sub",children:"Sign in to your account to continue"}),i&&(0,b.jsx)("div",{className:"auth-error",children:i}),(0,b.jsxs)("form",{onSubmit:m,children:[(0,b.jsxs)("div",{className:"form-group",children:[(0,b.jsx)("label",{className:"form-label",children:"Username"}),(0,b.jsx)("input",{className:"form-input",type:"text",placeholder:"Enter your username",value:g.username,onChange:a=>h(b=>({...b,username:a.target.value})),required:!0})]}),(0,b.jsxs)("div",{className:"form-group",children:[(0,b.jsx)("label",{className:"form-label",children:"Password"}),(0,b.jsx)("input",{className:"form-input",type:"password",placeholder:"Enter your password",value:g.password,onChange:a=>h(b=>({...b,password:a.target.value})),required:!0})]}),(0,b.jsx)("button",{type:"submit",className:"btn btn-primary",style:{width:"100%",justifyContent:"center",marginTop:"0.5rem"},disabled:k,children:k?"Signing in...":"Sign in"})]}),(0,b.jsxs)("div",{style:{marginTop:"1rem",textAlign:"center"},children:[(0,b.jsxs)("button",{type:"button",onClick:()=>(0,d.signIn)("google",{callbackUrl:"/"}),style:{width:"100%",display:"flex",alignItems:"center",justifyContent:"center",gap:"0.6rem",padding:"0.65rem 1rem",border:"1px solid #d1d5db",borderRadius:"8px",background:"#fff",cursor:"pointer",fontSize:"0.95rem",fontWeight:500,marginBottom:"0.75rem",color:"#374151"},children:[(0,b.jsxs)("svg",{width:"18",height:"18",viewBox:"0 0 48 48",children:[(0,b.jsx)("path",{fill:"#FFC107",d:"M43.6 20H24v8h11.3C33.6 33.1 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.1-4z"}),(0,b.jsx)("path",{fill:"#FF3D00",d:"M6.3 14.7l6.6 4.8C14.6 15.1 19 12 24 12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.5 29.3 4 24 4 16.3 4 9.7 8.4 6.3 14.7z"}),(0,b.jsx)("path",{fill:"#4CAF50",d:"M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36.5 24 36.5c-5.2 0-9.6-3.5-11.2-8.2l-6.5 5C9.5 39.9 16.3 44 24 44z"}),(0,b.jsx)("path",{fill:"#1976D2",d:"M43.6 20H24v8h11.3c-.9 2.4-2.5 4.4-4.5 5.8l6.2 5.2C40.9 35.3 44 30 24c0-1.3-.1-2.7-.4-4z"})]}),"Continue with Google"]}),(0,b.jsxs)("div",{style:{display:"flex",alignItems:"center",gap:"0.75rem"},children:[(0,b.jsx)("hr",{style:{flex:1,borderColor:"#e5e7eb"}}),(0,b.jsx)("span",{style:{color:"#9ca3af",fontSize:"0.85rem"},children:"or sign in with username"}),(0,b.jsx)("hr",{style:{flex:1,borderColor:"#e5e7eb"}})]})]}),(0,b.jsxs)("div",{className:"auth-footer",children:["Don't have an account?"," ",(0,b.jsx)(f.default,{href:"/register",children:"Create patient account"})]})]})})})]})}a.s(["default",()=>g])}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__9a8f28ef._.js.map

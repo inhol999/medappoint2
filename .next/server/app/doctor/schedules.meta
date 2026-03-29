@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/doctor/layout,_N_T_/doctor/schedules/layout,_N_T_/doctor/schedules/page,_N_T_/doctor/schedules"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/doctor/schedules/__PAGE__",
+    "/doctor/schedules",
+    "/doctor",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -5,6 +5,9 @@ import { Providers } from './providers';
 export const metadata: Metadata = {
   title: 'MedAppoint - Healthcare, Simplified',
   description: 'Find your clinic. Book your doctor. Manage your health — all in one place.',
+  verification: {
+    google: 'google5689472e52406cfd.html',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

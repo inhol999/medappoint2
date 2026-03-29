@@ -14,6 +14,8 @@ const patientRegisterSchema = z.object({
   phone: z.string().min(10),
   address: z.string().optional(),
   dateOfBirth: z.string().optional(),
+  verificationCode: z.string().optional(), // Google verification code only required for non-google signup
+  googleId: z.string().optional(),
 });
 
 const clinicRegisterSchema = z.object({
@@ -25,6 +27,8 @@ const clinicRegisterSchema = z.object({
   location: z.string().min(2),
   email: z.string().email(),
   description: z.string().optional(),
+  verificationCode: z.string().optional(),
+  googleId: z.string().optional(),
 });
 
 const registerSchema = z.union([patientRegisterSchema, clinicRegisterSchema]);
@@ -33,6 +37,33 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const data = registerSchema.parse(body);
+
+    const isGoogleSignup = Boolean((data as any).googleId);
+
+    if (!isGoogleSignup) {
+      const verificationRecord = await prisma.verificationCode.findUnique({
+        where: { email: data.email },
+      });
+
+      if (!verificationRecord) {
+        return NextResponse.json({ error: 'Email not verified. Please verify your Google account first.' }, { status: 400 });
+      }
+
+      if (verificationRecord.code !== data.verificationCode) {
+        return NextResponse.json({ error: 'Invalid verification code' }, { status: 400 });
+      }
+
+      if (verificationRecord.expiresAt < new Date()) {
+        return NextResponse.json({ error: 'Verification code has expired. Please request a new one.' }, { status: 400 });
+      }
+
+      // Delete the verification code after successful verification
+      await prisma.verificationCode.delete({ where: { email: data.email } });
+    } else {
+      if (data.accountType !== 'patient') {
+        return NextResponse.json({ error: 'Google signup only supports patient account type.' }, { status: 400 });
+      }
+    }
 
     if (data.accountType === 'patient') {
       // Check if username already exists
@@ -61,6 +92,7 @@ export async function POST(req: NextRequest) {
               phone: data.phone,
               address: data.address,
               dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : null,
+              googleId: (data as any).googleId || null,
             },
           },
         },

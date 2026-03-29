@@ -69,6 +69,7 @@ model Patient {
   phone       String
   address     String?
   dateOfBirth DateTime?
+  googleId    String?  @unique // Google OAuth ID
 
   user         User          @relation(fields: [userId], references: [userId], onDelete: Cascade)
   appointments Appointment[]
@@ -172,4 +173,14 @@ model Message {
   receiver User @relation("ReceivedMessages", fields: [receiverId], references: [userId], onDelete: Cascade)
 
   @@map("messages")
+}
+
+model VerificationCode {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  code      String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("verification_codes")
 }

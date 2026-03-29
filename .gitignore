@@ -1,4 +1,8 @@
+# Overwrite .gitignore with clean content
+@"
 .env
 .env.local
 .env.*
 node_modules
+.next
+"@ | Out-File -FilePath .gitignore -Encoding utf8

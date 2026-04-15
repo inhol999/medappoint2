@@ -161,8 +161,6 @@ function RegisterForm() {
           verificationCode: form.verificationCode,
           googleId: googlePrefill?.googleId,
         };
-          verificationCode: form.verificationCode,
-        };
 
       const res = await fetch('/api/auth/register', {
         method: 'POST',

@@ -5,7 +5,7 @@ generator client {
 
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -178,7 +178,7 @@ model Message {
 model VerificationCode {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  code      String
+  code      String   @db.VarChar(10)
   expiresAt DateTime
   createdAt DateTime @default(now())
 

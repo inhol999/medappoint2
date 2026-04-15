@@ -52,9 +52,11 @@ export async function POST(req: NextRequest) {
     }
 
     if (action === 'verify') {
-      const { email, code } = verifyCodeSchema.parse(body);
+      const parsed = verifyCodeSchema.parse(body);
+      const email = parsed.email;
+      const userCode = String(parsed.code).trim();
 
-      if (!isValidVerificationCode(code)) {
+      if (!isValidVerificationCode(userCode)) {
         return NextResponse.json({ error: 'Invalid verification code format' }, { status: 400 });
       }
 
@@ -67,7 +69,11 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'No verification code found for this email' }, { status: 400 });
       }
 
-      if (verificationRecord.code !== code) {
+      // Convert both to strings and trim to ensure consistent comparison
+      const dbCode = String(verificationRecord.code).trim();
+      console.log('[verify] DB code:', dbCode, 'User code:', userCode, 'Match:', dbCode === userCode);
+
+      if (dbCode !== userCode) {
         return NextResponse.json({ error: 'Invalid verification code' }, { status: 400 });
       }
 

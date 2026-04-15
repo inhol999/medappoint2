@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { requireAuth } from '@/lib/auth';
+import { requireAuth, getSession } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const search = searchParams.get('search') || '';
-  const { error, session } = await requireAuth();
+  const session = await getSession();
   
   // If user is ADMIN, return only their clinic
   if ((session?.user as any)?.role === 'ADMIN') {
@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(clinic ? [clinic] : []);
   }
 
-  // For non-admin users (patients searching), show all active clinics
+  // For non-admin users (patients searching) or unauthenticated users, show all active clinics
   const clinics = await prisma.clinic.findMany({
     where: {
       isActive: true,

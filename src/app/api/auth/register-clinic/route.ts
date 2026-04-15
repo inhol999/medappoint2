@@ -28,9 +28,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Username already taken' }, { status: 400 });
     }
 
-    // Check email
-    const existingEmail = await prisma.patient.findUnique({ where: { email: data.email } });
-    if (existingEmail) {
+    // Check email against both clinic and admin emails
+    const existingClinicEmail = await prisma.clinic.findUnique({ where: { email: data.email } });
+    if (existingClinicEmail) {
+      return NextResponse.json({ error: 'Email already registered for a clinic' }, { status: 400 });
+    }
+
+    const existingAdminEmail = await prisma.admin.findUnique({ where: { email: data.email } });
+    if (existingAdminEmail) {
       return NextResponse.json({ error: 'Email already registered' }, { status: 400 });
     }
 
@@ -47,24 +52,27 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Create a PATIENT user as the clinic owner/contact
-    // They can message doctors and manage via the patient portal
-    // Admin will see this and can promote to admin if needed
-    await prisma.user.create({
-      data: {
-        username: data.username,
-        password: hashedPassword,
-        role: 'PATIENT',
-        patient: {
-          create: {
-            fullName: data.fullName,
-            email: data.email,
-            phone: data.phone,
-            address: data.location,
+    // Create admin user linked to clinic
+    try {
+      await prisma.user.create({
+        data: {
+          username: data.username,
+          password: hashedPassword,
+          role: 'ADMIN',
+          admin: {
+            create: {
+              name: data.fullName,
+              email: data.email,
+              clinicId: clinic.clinicId,
+            },
           },
         },
-      },
-    });
+      });
+    } catch (error) {
+      // If user creation fails, cleanup the clinic
+      await prisma.clinic.delete({ where: { clinicId: clinic.clinicId } }).catch(() => {});
+      throw error;
+    }
 
     return NextResponse.json({
       message: 'Clinic registered successfully. An admin will review and activate your clinic shortly.',

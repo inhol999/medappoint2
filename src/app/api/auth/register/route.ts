@@ -49,7 +49,11 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Email not verified. Please verify your Google account first.' }, { status: 400 });
       }
 
-      if (verificationRecord.code !== data.verificationCode) {
+      // Ensure consistent string comparison
+      const verificationCodeToCheck = String(data.verificationCode).trim();
+      const dbCode = String(verificationRecord.code).trim();
+
+      if (dbCode !== verificationCodeToCheck) {
         return NextResponse.json({ error: 'Invalid verification code' }, { status: 400 });
       }
 
@@ -146,6 +150,10 @@ export async function POST(req: NextRequest) {
           },
         },
         include: { admin: true },
+      }).catch(async (err) => {
+        // If admin user creation fails, cleanup the clinic
+        await prisma.clinic.delete({ where: { clinicId: clinic.clinicId } }).catch(() => {});
+        throw err;
       });
 
       return NextResponse.json({

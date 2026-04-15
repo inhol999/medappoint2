@@ -152,12 +152,15 @@ function RegisterForm() {
         : {
           accountType,
           username: form.username,
-          password: form.password,
+          password: googlePrefill ? crypto.randomUUID() : form.password,
           clinicName: form.clinicName,
           contactNumber: form.contactNumber,
           location: form.location,
           email: form.email,
           description: form.description,
+          verificationCode: form.verificationCode,
+          googleId: googlePrefill?.googleId,
+        };
           verificationCode: form.verificationCode,
         };
 
@@ -203,8 +206,8 @@ function RegisterForm() {
 
         {error && <div className="auth-error">{error}</div>}
 
-        {/* Google Sign-up button (only for patient, before form) */}
-        {!googlePrefill && accountType === 'patient' && (
+        {/* Google Sign-up button (before form) */}
+        {!googlePrefill && (
           <>
             <button
               type="button"
@@ -338,16 +341,18 @@ function RegisterForm() {
                     <input className="form-input" value={form.clinicName} onChange={set('clinicName')} required />
                   </div>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '0.75rem' }}>
-                  <div className="form-group" style={{ marginBottom: 0 }}>
-                    <label className="form-label">Password *</label>
-                    <input className="form-input" type="password" value={form.password} onChange={set('password')} required minLength={6} />
+                {!googlePrefill && (
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '0.75rem' }}>
+                    <div className="form-group" style={{ marginBottom: 0 }}>
+                      <label className="form-label">Password *</label>
+                      <input className="form-input" type="password" value={form.password} onChange={set('password')} required minLength={6} />
+                    </div>
+                    <div className="form-group" style={{ marginBottom: 0 }}>
+                      <label className="form-label">Confirm Password *</label>
+                      <input className="form-input" type="password" value={form.confirmPassword} onChange={set('confirmPassword')} required />
+                    </div>
                   </div>
-                  <div className="form-group" style={{ marginBottom: 0 }}>
-                    <label className="form-label">Confirm Password *</label>
-                    <input className="form-input" type="password" value={form.confirmPassword} onChange={set('confirmPassword')} required />
-                  </div>
-                </div>
+                )}
                 <div className="form-group">
                   <label className="form-label">Contact Number *</label>
                   <input className="form-input" value={form.contactNumber} onChange={set('contactNumber')} placeholder="Contact number" required />

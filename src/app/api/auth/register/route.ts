@@ -21,7 +21,7 @@ const patientRegisterSchema = z.object({
 const clinicRegisterSchema = z.object({
   accountType: z.literal('clinic'),
   username: z.string().min(3).max(50),
-  password: z.string().min(6),
+  password: z.string().min(6).optional(),
   clinicName: z.string().min(2),
   contactNumber: z.string().min(10),
   location: z.string().min(2),
@@ -29,7 +29,10 @@ const clinicRegisterSchema = z.object({
   description: z.string().optional(),
   verificationCode: z.string().optional(),
   googleId: z.string().optional(),
-});
+}).refine(
+  (data) => data.googleId || data.password, 
+  { message: 'Either googleId or password must be provided' }
+);
 
 const registerSchema = z.union([patientRegisterSchema, clinicRegisterSchema]);
 
@@ -121,7 +124,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Email already registered for a clinic' }, { status: 400 });
       }
 
-      const hashedPassword = await bcrypt.hash(data.password, 12);
+      const hashedPassword = await bcrypt.hash((data as any).password || crypto.randomUUID(), 12);
 
       // Create clinic
       const clinic = await prisma.clinic.create({

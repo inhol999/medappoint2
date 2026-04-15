@@ -1,6 +1,166 @@
-[00:00:02.010] Server  LOG     ✓ Ready in 1683ms
-[00:00:05.177] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:06.683] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
-[00:00:08.260] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:02:28.517] Server  LOG       Reload env: .env
-[00:07:21.310] Server  LOG       Reload env: .env
+[00:00:02.167] Server  LOG     ✓ Ready in 1847ms
+[00:00:03.952] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.065] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:00:06.672] Server  ERROR   ⨯ ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:06.755] Browser ERROR   ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:07.055] Server  ERROR   ⨯ ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:07.124] Browser ERROR   ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:09.245] Browser ERROR   ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:09.447] Server  LOG     ○ Compiling /_error ...
+[00:00:10.380] Server  ERROR   ⨯ ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:10.418] Browser ERROR   ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:12.264] Browser ERROR   ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx
+[00:00:12.276] Server  ERROR   ⨯ ./src/app/register/page.tsx
+Error:   × Expression expected
+     ╭─[C:\Users\DIC\Desktop\medappoint2\src\app\register\page.tsx:165:1]
+ 162 │           googleId: googlePrefill?.googleId,
+ 163 │         };
+ 164 │           verificationCode: form.verificationCode,
+ 165 │         };
+     ·         ─
+ 166 │ 
+ 167 │       const res = await fetch('/api/auth/register', {
+ 167 │         method: 'POST',
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/register/page.tsx

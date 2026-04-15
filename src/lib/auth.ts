@@ -82,6 +82,7 @@ export const authOptions: NextAuthOptions = {
 
         // For Google sign-in: check if this Google email is already linked to a user
         if (account?.provider === 'google' && user.email) {
+          // Check if it's a patient with Google
           const existingPatient = await prisma.patient.findUnique({
             where: { email: user.email },
             include: { user: true },
@@ -97,6 +98,18 @@ export const authOptions: NextAuthOptions = {
               });
             }
             console.log('✓ Google login allowed for existing patient');
+            return true;
+          }
+
+          // Check if it's a clinic admin with Google
+          const existingAdmin = await prisma.admin.findUnique({
+            where: { email: user.email },
+            include: { user: true },
+          });
+
+          // If found and active, allow sign in
+          if (existingAdmin?.user && existingAdmin.user.status === 'ACTIVE') {
+            console.log('✓ Google login allowed for existing clinic admin');
             return true;
           }
 
@@ -130,6 +143,21 @@ export const authOptions: NextAuthOptions = {
           token.username = patient.user.username;
           token.profileId = patient.patientId;
           token.sub = String(patient.user.userId);
+        }
+
+        // Check for clinic admin if not found as patient
+        if (!patient?.user) {
+          const admin = await prisma.admin.findUnique({
+            where: { email: token.email as string },
+            include: { user: true },
+          });
+          if (admin?.user) {
+            token.role = admin.user.role;
+            token.username = admin.user.username;
+            token.profileId = admin.adminId;
+            token.clinicId = admin.clinicId;
+            token.sub = String(admin.user.userId);
+          }
         }
       }
 

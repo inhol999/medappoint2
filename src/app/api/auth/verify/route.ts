@@ -88,7 +88,11 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
   } catch (error) {
-    console.error('Verification error:', error);
+    console.error('❌ Verification error:', {
+      message: (error as any)?.message,
+      code: (error as any)?.code,
+      meta: (error as any)?.meta,
+    });
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

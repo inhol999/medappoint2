@@ -16,17 +16,31 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
 
-    const res = await signIn('credentials', {
-      username: form.username,
-      password: form.password,
-      redirect: false,
-    });
+    try {
+      const res = await signIn('credentials', {
+        username: form.username,
+        password: form.password,
+        redirect: false,
+      });
 
-    if (res?.error) {
-      setError('Invalid username or password');
+      console.log('✓ Sign-in response:', { ok: res?.ok, status: res?.status, error: res?.error });
+
+      if (res?.error || !res?.ok) {
+        setError('Invalid username or password');
+        setLoading(false);
+      } else if (res?.status === 200) {
+        // Successfully authenticated, redirect
+        console.log('✓ Login successful, redirecting...');
+        router.push('/');
+      } else {
+        console.error('❌ Unexpected response status:', res?.status);
+        setError('Login failed. Please try again.');
+        setLoading(false);
+      }
+    } catch (err) {
+      console.error('❌ Login error:', err);
+      setError('An error occurred. Please try again.');
       setLoading(false);
-    } else {
-      router.push('/');
     }
   };
 

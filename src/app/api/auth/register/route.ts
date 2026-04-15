@@ -166,7 +166,31 @@ export async function POST(req: NextRequest) {
     if (error.name === 'ZodError') {
       return NextResponse.json({ error: 'Invalid input', details: error.errors }, { status: 400 });
     }
-    console.error('Registration error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    
+    // Log detailed error information for debugging
+    console.error('❌ Registration error:', {
+      message: error?.message,
+      code: error?.code,
+      meta: error?.meta,
+      stack: error?.stack,
+    });
+
+    // Return specific error based on the error type
+    if (error.code === 'P2002') {
+      const field = error.meta?.target?.[0] || 'field';
+      return NextResponse.json({ 
+        error: `This ${field} is already registered` 
+      }, { status: 400 });
+    }
+
+    if (error.message?.includes('verificationCode')) {
+      return NextResponse.json({ 
+        error: 'Email verification failed. Please try again.' 
+      }, { status: 400 });
+    }
+
+    return NextResponse.json({ 
+      error: error?.message || 'Internal server error' 
+    }, { status: 500 });
   }
 }

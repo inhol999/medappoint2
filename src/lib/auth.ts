@@ -19,66 +19,97 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        if (!credentials?.username || !credentials?.password) return null;
+        if (!credentials?.username || !credentials?.password) {
+          console.error('❌ Missing credentials');
+          return null;
+        }
 
-        const user = await prisma.user.findUnique({
-          where: { username: credentials.username },
-          include: { admin: true, doctor: true, patient: true },
-        });
+        try {
+          const user = await prisma.user.findUnique({
+            where: { username: credentials.username },
+            include: { admin: true, doctor: true, patient: true },
+          });
 
-        if (!user || user.status !== 'ACTIVE') return null;
+          if (!user) {
+            console.error('❌ User not found:', credentials.username);
+            return null;
+          }
 
-        const passwordMatch = await bcrypt.compare(credentials.password, user.password);
-        if (!passwordMatch) return null;
+          if (user.status !== 'ACTIVE') {
+            console.error('❌ User not active:', credentials.username, 'status:', user.status);
+            return null;
+          }
 
-        let name = '';
-        let profileId = 0;
-        let clinicId = null;
-        if (user.admin) { name = user.admin.name; profileId = user.admin.adminId; clinicId = user.admin.clinicId; }
-        else if (user.doctor) { name = user.doctor.fullName; profileId = user.doctor.doctorId; clinicId = user.doctor.clinicId; }
-        else if (user.patient) { name = user.patient.fullName; profileId = user.patient.patientId; }
+          const passwordMatch = await bcrypt.compare(credentials.password, user.password);
+          if (!passwordMatch) {
+            console.error('❌ Password mismatch for user:', credentials.username);
+            return null;
+          }
 
-        return {
-          id: String(user.userId),
-          name,
-          email: user.patient?.email || user.admin?.email || '',
-          username: user.username,
-          role: user.role,
-          profileId,
-          clinicId,
-        };
+          let name = '';
+          let profileId = 0;
+          let clinicId = null;
+          if (user.admin) { name = user.admin.name; profileId = user.admin.adminId; clinicId = user.admin.clinicId; }
+          else if (user.doctor) { name = user.doctor.fullName; profileId = user.doctor.doctorId; clinicId = user.doctor.clinicId; }
+          else if (user.patient) { name = user.patient.fullName; profileId = user.patient.patientId; }
+
+          console.log('✓ Login successful:', { username: credentials.username, role: user.role });
+
+          return {
+            id: String(user.userId),
+            name,
+            email: user.patient?.email || user.admin?.email || '',
+            username: user.username,
+            role: user.role,
+            profileId,
+            clinicId,
+          };
+        } catch (err) {
+          console.error('❌ Authorization error:', err);
+          return null;
+        }
       },
     }),
   ],
   callbacks: {
     async signIn({ user, account }) {
-      // Allow credentials login normally
-      if (account?.provider === 'credentials') return true;
-
-      // For Google sign-in: check if this Google email is already linked to a user
-      if (account?.provider === 'google' && user.email) {
-        const existingPatient = await prisma.patient.findUnique({
-          where: { email: user.email },
-          include: { user: true },
-        });
-
-        // If found and active, allow sign in
-        if (existingPatient?.user && existingPatient.user.status === 'ACTIVE') {
-          // Store googleId if not already stored
-          if (!existingPatient.googleId) {
-            await prisma.patient.update({
-              where: { patientId: existingPatient.patientId },
-              data: { googleId: account.providerAccountId },
-            });
-          }
+      try {
+        // Allow credentials login normally
+        if (account?.provider === 'credentials') {
+          console.log('✓ Credentials login allowed');
           return true;
         }
 
-        // No account linked — redirect to register with Google info pre-filled
-        return `/register?googleEmail=${encodeURIComponent(user.email)}&googleName=${encodeURIComponent(user.name || '')}&googleId=${encodeURIComponent(account.providerAccountId)}`;
-      }
+        // For Google sign-in: check if this Google email is already linked to a user
+        if (account?.provider === 'google' && user.email) {
+          const existingPatient = await prisma.patient.findUnique({
+            where: { email: user.email },
+            include: { user: true },
+          });
 
-      return true;
+          // If found and active, allow sign in
+          if (existingPatient?.user && existingPatient.user.status === 'ACTIVE') {
+            // Store googleId if not already stored
+            if (!existingPatient.googleId) {
+              await prisma.patient.update({
+                where: { patientId: existingPatient.patientId },
+                data: { googleId: account.providerAccountId },
+              });
+            }
+            console.log('✓ Google login allowed for existing patient');
+            return true;
+          }
+
+          // No account linked — redirect to register with Google info pre-filled
+          console.log('ℹ️ New Google account, redirecting to register');
+          return `/register?googleEmail=${encodeURIComponent(user.email)}&googleName=${encodeURIComponent(user.name || '')}&googleId=${encodeURIComponent(account.providerAccountId)}`;
+        }
+
+        return true;
+      } catch (err) {
+        console.error('❌ SignIn callback error:', err);
+        return false;
+      }
     },
     async jwt({ token, user, account }) {
       if (user) {
@@ -105,14 +136,23 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      if (token) {
-        (session.user as any).id = token.sub;
-        (session.user as any).role = token.role;
-        (session.user as any).username = token.username;
-        (session.user as any).profileId = token.profileId;
-        (session.user as any).clinicId = token.clinicId;
+      try {
+        if (token) {
+          (session.user as any).id = token.sub;
+          (session.user as any).role = token.role;
+          (session.user as any).username = token.username;
+          (session.user as any).profileId = token.profileId;
+          (session.user as any).clinicId = token.clinicId;
+        }
+        console.log('✓ Session retrieved:', { 
+          username: (session.user as any).username, 
+          role: (session.user as any).role 
+        });
+        return session;
+      } catch (err) {
+        console.error('❌ Session callback error:', err);
+        return session;
       }
-      return session;
     },
   },
   pages: {
@@ -121,6 +161,17 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
     maxAge: 24 * 60 * 60,
+  },
+  cookies: {
+    sessionToken: {
+      name: process.env.NODE_ENV === 'production' ? '__Secure-next-auth.session-token' : 'next-auth.session-token',
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === 'development',

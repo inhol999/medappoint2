@@ -43,7 +43,11 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ message: 'Verification code sent successfully' });
   } catch (error) {
-    console.error('Send code error:', error);
+    console.error('❌ Send code error:', {
+      message: (error as any)?.message,
+      code: (error as any)?.code,
+      meta: (error as any)?.meta,
+    });
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

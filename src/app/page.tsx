@@ -89,7 +89,7 @@ export default function HomePage() {
                   <Link href="/admin/appointments" className="quick-link">
                     <div className="icon">📅</div>
                     <h3>Appointments</h3>
-                    <p>View all appointments</p>
+                    <p>View all  appointments</p>
                   </Link>
                 </>
               )}
@@ -354,7 +354,7 @@ export default function HomePage() {
             </div>
           )}
         </div>
-        <Link href="/register" className="view-all">View all clinics & book →</Link>
+        <Link href={session ? "/patient/find" : "/login"} className="view-all">View all clinics & book →</Link>
       </section>
 
       {/* FEATURES */}

@@ -342,19 +342,41 @@ export default function HomePage() {
       <section className="clinic-section" id="clinics">
         <div className="section-label">Featured clinics</div>
         <div className="clinic-grid">
-          {filtered.length > 0 ? filtered.map((c, i) => (
-            <Link href={session ? "/patient/find" : "/login"} key={i} className="clinic-item" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <div className="ci-top"><div className="ci-name">{c.clinicName}</div></div>
-              <div className="ci-loc">{c.location}</div>
-              <div className="ci-spec">{c.description || 'Medical Clinic'}</div>
-            </Link>
-          )) : (
+          {filtered.length > 0 ? filtered.map((c, i) => {
+            let href = "/login";
+            if (session) {
+              const role = (session.user as any)?.role;
+              if (role === 'PATIENT') {
+                href = "/patient/find";
+              } else if (role === 'ADMIN' || role === 'DOCTOR') {
+                href = "/dashboard";
+              }
+            }
+            return (
+              <Link href={href} key={i} className="clinic-item" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div className="ci-top"><div className="ci-name">{c.clinicName}</div></div>
+                <div className="ci-loc">{c.location}</div>
+                <div className="ci-spec">{c.description || 'Medical Clinic'}</div>
+              </Link>
+            );
+          }) : (
             <div className="no-results">
               No clinics available yet.
             </div>
           )}
         </div>
-        <Link href={session ? "/patient/find" : "/login"} className="view-all">View all clinics & book →</Link>
+        {(() => {
+          let href = "/login";
+          if (session) {
+            const role = (session.user as any)?.role;
+            if (role === 'PATIENT') {
+              href = "/patient/find";
+            } else if (role === 'ADMIN' || role === 'DOCTOR') {
+              href = "/dashboard";
+            }
+          }
+          return <Link href={href} className="view-all">View all clinics & book →</Link>;
+        })()}
       </section>
 
       {/* FEATURES */}

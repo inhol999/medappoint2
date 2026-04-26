@@ -1,33 +1,172 @@
-[00:00:02.595] Server  LOG     ✓ Ready in 2.2s
-[00:00:04.477] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:05.619] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
-[00:00:08.888] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:00:17.368] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
-[00:01:45.992] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
-[00:01:48.107] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
-[00:01:48.381] Server  LOG     [next-auth][debug][CREATE_STATE] {}
-[00:01:48.385] Server  LOG     [next-auth][debug][CREATE_PKCECODEVERIFIER] {}
-[00:01:48.387] Server  LOG     [next-auth][debug][GET_AUTHORIZATION_URL] {}
-[00:02:02.517] Server  LOG     [next-auth][debug][PROFILE_DATA] {}
-[00:02:02.517] Server  LOG     [next-auth][debug][OAUTH_CALLBACK_RESPONSE] {}
-[00:02:03.076] Server  LOG     ✓ Google login allowed for existing patient
-[00:02:03.781] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:03.811] Server  LOG     ✓ Session retrieved: {}
-[00:02:03.848] Server  LOG     ✓ Session retrieved: {}
-[00:02:07.683] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:02:10.660] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:10.696] Server  LOG     ✓ Session retrieved: {}
-[00:02:10.698] Server  LOG     ✓ Session retrieved: {}
-[00:02:14.278] Server  LOG     ✓ Session retrieved: {}
-[00:02:15.699] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
-[00:02:15.700] Server  LOG     ✓ Session retrieved: {}
-[00:02:15.815] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:02:15.954] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
-[00:02:15.956] Server  LOG     ✓ Session retrieved: {}
-[00:02:24.495] Server  LOG     ✓ Session retrieved: {}
-[00:02:25.820] Server  LOG     ✓ Session retrieved: {}
-[00:02:25.820] Server  LOG     ✓ Session retrieved: {}
-[00:02:27.411] Server  LOG     ✓ Session retrieved: {}
-[00:02:27.644] Server  LOG     ✓ Session retrieved: {}
-[00:02:29.861] Server  LOG     ✓ Session retrieved: {}
-[00:02:29.861] Server  LOG     ✓ Session retrieved: {}
+[00:00:02.365] Server  LOG     ✓ Ready in 1965ms
+[00:00:12.776] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.973] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:00:18.732] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:22.460] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:00:23.656] Server  LOG     ✓ Login successful: {}
+[00:00:23.656] Server  LOG     ✓ Credentials login allowed
+[00:00:23.709] Server  LOG     ✓ Session retrieved: {}
+[00:00:23.817] Browser LOG     ✓ Sign-in response: {"error":null,"ok":true,"status":200}
+[00:00:23.817] Browser LOG     ✓ Login successful, redirecting...
+[00:00:23.817] Server  LOG     ✓ Session retrieved: {}
+[00:00:23.818] Server  LOG     ✓ Session retrieved: {}
+[00:00:26.307] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:26.341] Server  LOG     ✓ Session retrieved: {}
+[00:00:26.354] Server  LOG     ✓ Session retrieved: {}
+[00:00:41.422] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:41.448] Server  LOG     ✓ Session retrieved: {}
+[00:00:41.489] Server  LOG     ✓ Session retrieved: {}
+[00:00:47.609] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:47.639] Server  LOG     ✓ Session retrieved: {}
+[00:00:47.644] Server  LOG     ✓ Session retrieved: {}
+[00:00:59.948] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:59.979] Server  LOG     ✓ Session retrieved: {}
+[00:00:59.981] Server  LOG     ✓ Session retrieved: {}
+[00:01:23.366] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:01:23.369] Server  LOG     ✓ Session retrieved: {}
+[00:01:23.399] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:23.791] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:01:23.794] Server  LOG     ✓ Session retrieved: {}
+[00:01:25.012] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:01:25.013] Server  LOG     ✓ Session retrieved: {}
+[00:01:25.284] Server  LOG     ✓ Session retrieved: {}
+[00:01:35.008] Server  LOG     ✓ Session retrieved: {}
+[00:01:35.009] Server  LOG     ✓ Session retrieved: {}
+[00:01:36.442] Server  LOG     ✓ Session retrieved: {}
+[00:01:36.679] Server  LOG     ✓ Session retrieved: {}
+[00:01:37.416] Server  LOG     ✓ Session retrieved: {}
+[00:01:38.099] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:01.805] Server  LOG     ✓ Login successful: {}
+[00:02:01.805] Server  LOG     ✓ Credentials login allowed
+[00:02:01.827] Server  LOG     ✓ Session retrieved: {}
+[00:02:01.905] Server  LOG     ✓ Session retrieved: {}
+[00:02:01.907] Server  LOG     ✓ Session retrieved: {}
+[00:02:02.019] Browser LOG     ✓ Sign-in response: {"error":null,"ok":true,"status":200}
+[00:02:02.019] Browser LOG     ✓ Login successful, redirecting...
+[00:02:02.019] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:02:02.043] Server  LOG     ✓ Session retrieved: {}
+[00:02:05.766] Server  LOG     ✓ Session retrieved: {}
+[00:02:07.315] Server  LOG     ✓ Session retrieved: {}
+[00:02:10.523] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:10.548] Server  LOG     ✓ Session retrieved: {}
+[00:02:10.588] Server  LOG     ✓ Session retrieved: {}
+[00:02:14.533] Server  LOG     ✓ Session retrieved: {}
+[00:02:14.619] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:02:15.059] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:02:15.061] Server  LOG     ✓ Session retrieved: {}
+[00:02:15.061] Server  LOG     ✓ Session retrieved: {}
+[00:02:17.180] Server  LOG     prisma:error "\nInvalid `prisma.clinic.count()` invocation:\n\n\nError in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size"
+[00:02:17.269] Server  ERROR   ⨯ PrismaClientUnknownRequestError: 
+Invalid `prisma.clinic.count()` invocation:
+
+
+Error in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+[00:02:17.307] Server  LOG     ✓ Session retrieved: {}
+[00:02:17.353] Server  LOG     ✓ Session retrieved: {}
+[00:02:17.945] Server  LOG     ✓ Session retrieved: {}
+[00:02:19.557] Server  LOG     ✓ Session retrieved: {}
+[00:02:19.589] Server  LOG     ✓ Session retrieved: {}
+[00:02:57.074] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:02:57.077] Server  LOG     ✓ Session retrieved: {}
+[00:02:57.105] Server  LOG     ✓ Session retrieved: {}
+[00:02:57.973] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:58.010] Server  LOG     ✓ Session retrieved: {}
+[00:02:58.012] Server  LOG     ✓ Session retrieved: {}
+[00:02:58.047] Server  LOG     ✓ Session retrieved: {}
+[00:02:59.983] Server  LOG     prisma:error "\nInvalid `prisma.payment.aggregate()` invocation:\n\n\nError in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size"
+[00:03:00.045] Server  ERROR   ⨯ PrismaClientUnknownRequestError: 
+Invalid `prisma.payment.aggregate()` invocation:
+
+
+Error in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+[00:03:00.166] Server  LOG     ✓ Session retrieved: {}
+[00:03:00.167] Server  LOG     ✓ Session retrieved: {}
+[00:03:00.232] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:01.962] Server  LOG     ✓ Session retrieved: {}
+[00:03:01.963] Server  LOG     ✓ Session retrieved: {}
+[00:03:02.380] Server  LOG     ✓ Session retrieved: {}
+[00:03:04.061] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findUnique()` invocation:\n\n\nError in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size"
+[00:03:04.103] Server  ERROR   ⨯ PrismaClientUnknownRequestError: 
+Invalid `prisma.clinic.findUnique()` invocation:
+
+
+Error in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+[00:03:04.122] Server  LOG     ✓ Session retrieved: {}
+[00:03:04.212] Browser ERROR   unhandledRejection: SyntaxError: Failed to execute 'json' on 'Response': Unexpected end of JSON input
+[00:03:05.508] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:03:05.511] Server  LOG     ✓ Session retrieved: {}
+[00:03:05.788] Server  LOG     ✓ Session retrieved: {}
+[00:03:11.280] Server  LOG     ✓ Session retrieved: {}
+[00:03:11.281] Server  LOG     ✓ Session retrieved: {}
+[00:03:12.378] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:12.403] Server  LOG     ✓ Session retrieved: {}
+[00:03:12.419] Server  LOG     ✓ Session retrieved: {}
+[00:03:13.567] Server  LOG     ✓ Session retrieved: {}
+[00:03:13.570] Server  LOG     ✓ Session retrieved: {}
+[00:03:13.662] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:14.099] Server  LOG     ✓ Session retrieved: {}
+[00:03:15.521] Server  LOG     prisma:error "\nInvalid `prisma.clinic.findUnique()` invocation:\n\n\nError in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size"
+[00:03:15.592] Server  ERROR   ⨯ PrismaClientUnknownRequestError: 
+Invalid `prisma.clinic.findUnique()` invocation:
+
+
+Error in connector: Error querying the database: FATAL: MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+[00:03:15.610] Server  LOG     ✓ Session retrieved: {}
+[00:03:17.487] Server  LOG     ✓ Session retrieved: {}
+[00:03:17.753] Server  LOG     ✓ Session retrieved: {}
+[00:03:20.272] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:23.751] Server  ERROR   ❌ User not found: "doc"
+[00:03:23.863] Browser LOG     ✓ Sign-in response: {"error":"CredentialsSignin","ok":false,"status":401}
+[00:03:27.141] Server  LOG     ✓ Login successful: {}
+[00:03:27.141] Server  LOG     ✓ Credentials login allowed
+[00:03:27.183] Server  LOG     ✓ Session retrieved: {}
+[00:03:27.261] Server  LOG     ✓ Session retrieved: {}
+[00:03:27.261] Server  LOG     ✓ Session retrieved: {}
+[00:03:27.327] Browser LOG     ✓ Sign-in response: {"error":null,"ok":true,"status":200}
+[00:03:27.327] Browser LOG     ✓ Login successful, redirecting...
+[00:03:27.327] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:35.300] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:35.331] Server  LOG     ✓ Session retrieved: {}
+[00:03:35.333] Server  LOG     ✓ Session retrieved: {}
+[00:03:36.824] Server  LOG     ✓ Session retrieved: {}
+[00:03:36.940] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:37.088] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:03:37.089] Server  LOG     ✓ Session retrieved: {}
+[00:03:37.947] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:03:37.949] Server  LOG     ✓ Session retrieved: {}
+[00:03:38.088] Server  LOG     ✓ Session retrieved: {}
+[00:03:48.820] Server  LOG     ✓ Session retrieved: {}
+[00:03:49.335] Server  LOG     ✓ Session retrieved: {}
+[00:03:51.829] Server  LOG     ✓ Session retrieved: {}
+[00:03:52.467] Server  LOG     ✓ Session retrieved: {}
+[00:03:53.071] Server  LOG     ✓ Session retrieved: {}
+[00:03:53.071] Server  LOG     ✓ Session retrieved: {}
+[00:03:54.651] Server  LOG     ✓ Session retrieved: {}
+[00:03:54.917] Server  LOG     ✓ Session retrieved: {}
+[00:03:55.058] Server  LOG     ✓ Session retrieved: {}
+[00:03:55.478] Server  LOG     ✓ Session retrieved: {}
+[00:03:56.096] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:00.759] Server  LOG     ✓ Login successful: {}
+[00:04:00.759] Server  LOG     ✓ Credentials login allowed
+[00:04:00.793] Server  LOG     ✓ Session retrieved: {}
+[00:04:00.870] Server  LOG     ✓ Session retrieved: {}
+[00:04:00.872] Server  LOG     ✓ Session retrieved: {}
+[00:04:01.029] Browser LOG     ✓ Sign-in response: {"error":null,"ok":true,"status":200}
+[00:04:01.029] Browser LOG     ✓ Login successful, redirecting...
+[00:04:01.029] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:04:01.042] Server  LOG     ✓ Session retrieved: {}
+[00:04:08.447] Server  LOG     ✓ Session retrieved: {}
+[00:04:09.347] Server  LOG     ✓ Session retrieved: {}
+[00:04:13.596] Server  LOG     ✓ Session retrieved: {}
+[00:04:16.959] Server  WARN    [next-auth][warn][DEBUG_ENABLED] "\nhttps://next-auth.js.org/warnings#debug_enabled"
+[00:04:16.962] Server  LOG     ✓ Session retrieved: {}
+[00:04:17.301] Server  LOG     ✓ Session retrieved: {}
+[00:04:19.412] Server  LOG     ✓ Session retrieved: {}
+[00:04:19.415] Server  LOG     ✓ Session retrieved: {}
+[00:04:20.372] Server  LOG     ✓ Session retrieved: {}
+[00:04:20.606] Server  LOG     ✓ Session retrieved: {}
+[00:04:21.009] Server  LOG     ✓ Session retrieved: {}
+[00:04:21.011] Server  LOG     ✓ Session retrieved: {}
+[00:04:22.171] Server  LOG     ✓ Session retrieved: {}
+[00:04:22.402] Server  LOG     ✓ Session retrieved: {}
+[00:04:24.551] Server  LOG     ✓ Session retrieved: {}

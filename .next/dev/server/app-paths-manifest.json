@@ -2,8 +2,10 @@
   "/api/clinics/route": "app/api/clinics/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/doctors/route": "app/api/doctors/route.js",
+  "/api/appointments/route": "app/api/appointments/route.js",
   "/page": "app/page.js",
   "/login/page": "app/login/page.js",
-  "/register/page": "app/register/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/admin/clinics/page": "app/admin/clinics/page.js",
   "/patient/find/page": "app/patient/find/page.js"
 }
